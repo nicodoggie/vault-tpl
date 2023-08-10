@@ -1,6 +1,6 @@
 {
-  "name": "vault-tpl",
-  "version": "1.0.0",
+  "name": "@splitmedialabs/vault-tpl",
+  "version": "1.1.0",
   "main": "index.js",
   "description": "Simple CLI app that reads a file, finds secrets and replace them.",
   "license": "MIT",
