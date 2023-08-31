@@ -13,7 +13,6 @@ module.exports = function parse(content) {
     const id = `${secret}:${field}@${version}`;
     output.push({ id, secret, field, version });
   }
-
   const uniqBy = require('lodash/uniqBy');
 
   return uniqBy(output, 'id');

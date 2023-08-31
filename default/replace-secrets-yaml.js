@@ -1,19 +1,18 @@
 const parse = require('./parse');
 const { keyBy, get } = require('lodash');
 
-module.exports.replaceSecretsYaml = function(object, secrets) {
+module.exports.replaceSecretsYaml = function (yamlObj, secrets) {
   const keyedSecrets = keyBy(secrets, 'id');
-
-  Object.keys(object).map(key => {
-    const id = get(parse(object[key]), [0, 'id']);
+  Object.entries(yamlObj).map(([key, value]) => {
+    const { id } = parse(value)[0] ?? {};
 
     if (!id) {
       return;
     }
 
     const secret = get(keyedSecrets, [id, 'secret'], '');
-    object[key] = secret;
+    yamlObj[key] = secret;
   });
 
-  return object;
+  return yamlObj;
 };
