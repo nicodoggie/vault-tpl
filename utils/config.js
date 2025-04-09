@@ -19,6 +19,8 @@ function getToken() {
 const config = {
   VAULT_ADDR: process.env.VAULT_ADDR,
   VAULT_TOKEN: getToken(),
+  'CF-Access-Client-Id': process.env.CF_ACCESS_CLIENT_ID,
+  'CF-Access-Client-Secret': process.env.CF_ACCESS_CLIENT_SECRET,
 };
 
 module.exports = config;
